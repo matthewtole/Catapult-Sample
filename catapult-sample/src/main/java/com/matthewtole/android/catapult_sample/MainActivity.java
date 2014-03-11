@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     private static final String CATAPULT_TYPE_APP = "pebble-app";
 
     private static final int REQUEST_CATAPULT = 1;
+    private static final String TAG = "CatapultSample";
 
     private Button mBtnLaunch;
     private Bundle mBundle;
@@ -81,6 +82,7 @@ public class MainActivity extends Activity {
             mBundle = data.getBundleExtra(TASKER_BUNDLE);
             // The bundle contains the name of the app, and its UUID.
             mBtnLaunch.setText("Launch '" + mBundle.getString("name") + "'!");
+            Log.d(TAG, String.format("UUID for %s is %s", mBundle.getString("name"), mBundle.getString("uuid")));
             mBtnLaunch.setEnabled(true);
         }
     }
